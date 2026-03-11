@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — DeutschArtikel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--amber:#C8680A;--dark-amber:#9E4D00;--cream:#FAF7F2;--brown:#2C1A0E;--sand:#EDE0CC;--white:#fff;--mid:#7D6B5A;--border:#DDD0BC;--green:#2D5A27}
+body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:var(--brown);min-height:100vh}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--brown);position:relative;overflow:hidden}
+.login-wrap::before{content:'DA';position:absolute;font-family:'Playfair Display',serif;font-size:360px;color:rgba(255,255,255,0.02);right:-60px;bottom:-60px;font-weight:900;line-height:1}
+.login-box{background:var(--cream);padding:52px 44px;width:100%;max-width:420px;border-top:5px solid var(--amber)}
+.login-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--brown);margin-bottom:4px}
+.login-logo span{color:var(--amber)}
+.login-sub{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:36px;font-weight:700}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
+.field input{width:100%;padding:13px 16px;border:1px solid var(--border);font-size:15px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border 0.2s;background:var(--white)}
+.field input:focus{border-color:var(--amber)}
+.login-btn{width:100%;padding:14px;background:var(--brown);color:#fff;border:none;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s}
+.login-btn:hover{background:var(--amber)}
+.login-err{color:var(--amber);font-size:13px;margin-top:10px;display:none;font-weight:700;text-align:center}
+.admin-wrap{display:none;min-height:100vh}
+.admin-header{background:var(--brown);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--amber)}
+.admin-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.admin-logo span{color:var(--amber)}
+.admin-nav{display:flex;gap:6px;align-items:center}
+.admin-nav button{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:7px 16px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s}
+.admin-nav button:hover,.admin-nav button.active{background:var(--amber);border-color:var(--amber);color:#fff}
+.logout-btn{background:transparent;border:none;color:rgba(255,255,255,0.3);font-size:11px;cursor:pointer;font-family:'Source Sans 3',sans-serif;padding:7px;font-weight:700}
+.logout-btn:hover{color:#fff}
+.view-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:7px 16px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s}
+.view-btn:hover{background:var(--sand);color:var(--brown);border-color:var(--sand)}
+.admin-body{max-width:1100px;margin:0 auto;padding:32px 28px}
+.panel{display:none}.panel.active{display:block}
+.panel-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--brown);margin-bottom:24px;letter-spacing:-0.5px;border-bottom:1px solid var(--border);padding-bottom:16px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.stat-card{background:var(--white);padding:28px;border:1px solid var(--border);border-bottom:4px solid var(--amber);transition:transform 0.2s}
+.stat-card:hover{transform:translateY(-3px)}
+.stat-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--brown);margin-bottom:4px}
+.stat-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+.editor-grid{display:grid;grid-template-columns:1fr 285px;gap:24px}
+.editor-main{background:var(--white);padding:36px;border:1px solid var(--border)}
+.editor-side{display:flex;flex-direction:column;gap:16px}
+.side-box{background:var(--white);border:1px solid var(--border);padding:22px}
+.side-box h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--brown);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.title-input{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;border:none;background:transparent;padding:0;width:100%;outline:none;margin-bottom:16px;color:var(--brown);letter-spacing:-0.5px}
+.title-input::placeholder{color:var(--border)}
+.title-sep{height:1px;background:var(--border);margin-bottom:20px}
+.form-field{margin-bottom:16px}
+.form-field label{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:7px}
+.form-field input,.form-field select,.form-field textarea{width:100%;padding:10px 14px;border:1px solid var(--border);font-size:14px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border 0.2s;background:var(--cream)}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--amber);background:var(--white)}
+#post-content{min-height:380px;resize:vertical;line-height:1.75;font-size:14px}
+.toolbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.toolbar button{background:var(--cream);border:1px solid var(--border);padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s}
+.toolbar button:hover{background:var(--brown);color:#fff;border-color:var(--brown)}
+.publish-btn{width:100%;padding:14px;background:var(--brown);color:#fff;border:none;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;margin-bottom:8px;transition:background 0.2s}
+.publish-btn:hover{background:var(--amber)}
+.cancel-btn{width:100%;padding:10px;background:var(--cream);color:var(--mid);border:1px solid var(--border);font-size:11px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s}
+.cancel-btn:hover{border-color:var(--brown);color:var(--brown)}
+.success-msg{background:#F0FFF4;color:#1A472A;padding:12px;font-size:12px;font-weight:700;margin-top:8px;display:none;border-left:3px solid var(--green);letter-spacing:1px;text-transform:uppercase}
+.posts-table{background:var(--white);border:1px solid var(--border);overflow:hidden}
+.posts-table-header{display:grid;grid-template-columns:1fr 140px 120px 110px;padding:12px 20px;background:var(--brown);color:rgba(255,255,255,0.7);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.post-row{display:grid;grid-template-columns:1fr 140px 120px 110px;padding:16px 20px;border-bottom:1px solid var(--border);align-items:center;transition:background 0.15s}
+.post-row:hover{background:var(--cream)}
+.post-row:last-child{border-bottom:none}
+.post-row-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--brown);margin-bottom:3px;line-height:1.3}
+.post-row-excerpt{font-size:12px;color:#bbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:380px}
+.post-row-date{font-size:12px;color:#888;font-weight:500}
+.post-row-cat{font-size:10px;background:var(--sand);color:var(--brown);padding:3px 10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;display:inline-block}
+.row-actions{display:flex;gap:6px}
+.edit-btn{background:var(--brown);color:#fff;border:none;padding:5px 12px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;letter-spacing:1px}
+.del-btn{background:var(--amber);color:#fff;border:none;padding:5px 12px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;letter-spacing:1px}
+.empty-posts{text-align:center;padding:60px;color:#aaa;font-size:14px;font-style:italic}
+.dashboard-cta{background:var(--brown);padding:56px;text-align:center;border:1px solid var(--border);position:relative;overflow:hidden}
+.dashboard-cta::before{content:'✦';position:absolute;font-size:200px;color:rgba(255,255,255,0.02);top:50%;left:50%;transform:translate(-50%,-50%)}
+.dashboard-cta h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:10px;position:relative}
+.dashboard-cta p{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:24px;font-weight:300;position:relative}
+</style>
+</head>
+<body>
+<div class="login-wrap" id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">Deutsch<span>Artikel</span></div>
+    <div class="login-sub">Redaktions-Admin</div>
+    <div class="field"><label>Passwort</label><input type="password" id="pw-input" placeholder="Passwort eingeben..." onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="login-btn" onclick="doLogin()">Anmelden</button>
+    <div class="login-err" id="login-err">❌ Falsches Passwort!</div>
+  </div>
+</div>
+<div class="admin-wrap" id="admin-panel">
+  <div class="admin-header">
+    <div class="admin-logo">Deutsch<span>Artikel</span> Admin</div>
+    <div class="admin-nav">
+      <button class="active" onclick="showPanel('dashboard',this)">Dashboard</button>
+      <button onclick="showPanel('new-post',this)">✏ Neuer Artikel</button>
+      <button onclick="showPanel('all-posts',this)">📋 Alle Artikel</button>
+      <a href="index.html" target="_blank" class="view-btn">🌐 Magazin</a>
+      <button class="logout-btn" onclick="logout()">Abmelden</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="panel active" id="panel-dashboard">
+      <div class="panel-title">Redaktions-Dashboard</div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Artikel gesamt</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-today">0</div><div class="stat-label">Heute publiziert</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-cats">0</div><div class="stat-label">Rubriken</div></div>
+      </div>
+      <div class="dashboard-cta">
+        <h3>Bereit zum Schreiben?</h3>
+        <p>Verfassen Sie Ihren nächsten Artikel für DeutschArtikel</p>
+        <button class="publish-btn" style="width:auto;padding:12px 36px" onclick="showPanel('new-post',document.querySelector('.admin-nav button:nth-child(2)'))">Neuen Artikel erstellen →</button>
+      </div>
+    </div>
+    <div class="panel" id="panel-new-post">
+      <div class="panel-title"><span id="editor-mode-title">Neuer Artikel</span></div>
+      <div class="editor-grid">
+        <div class="editor-main">
+          <input class="title-input" type="text" id="post-title" placeholder="Artikeltitel...">
+          <div class="title-sep"></div>
+          <div class="toolbar">
+            <button onclick="fmt('bold')"><b>B</b></button>
+            <button onclick="fmt('italic')"><i>I</i></button>
+            <button onclick="wrapTag('h2')">H2</button>
+            <button onclick="wrapTag('h3')">H3</button>
+            <button onclick="wrapTag('blockquote')">❝</button>
+            <button onclick="insertLink()">🔗 Link</button>
+            <button onclick="wrapTag('ul')">Liste</button>
+          </div>
+          <div class="form-field"><textarea id="post-content" placeholder="Artikeltext hier... HTML erlaubt.&#10;&lt;p&gt;Inhalt...&lt;/p&gt;&#10;&lt;a href=&quot;https://example.com&quot;&gt;Link&lt;/a&gt;"></textarea></div>
+        </div>
+        <div class="editor-side">
+          <div class="side-box">
+            <h3>Veröffentlichen</h3>
+            <button class="publish-btn" onclick="publishPost()">🚀 Veröffentlichen</button>
+            <button class="cancel-btn" onclick="clearEditor()">✖ Abbrechen</button>
+            <div class="success-msg" id="success-msg">✅ ARTIKEL PUBLIZIERT!</div>
+          </div>
+          <div class="side-box">
+            <h3>Details</h3>
+            <div class="form-field"><label>Rubrik</label>
+              <select id="post-cat"><option>Allgemein</option><option>Politik</option><option>Wirtschaft</option><option>Kultur</option><option>Ratgeber</option><option>Meinung</option><option>Reisen</option><option>Technik</option><option>Sport</option></select>
+            </div>
+            <div class="form-field"><label>Autor</label><input type="text" id="post-author" value="Redaktion"></div>
+          </div>
+          <div class="side-box">
+            <h3>Vorschau</h3>
+            <div id="preview-title" style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--brown);margin-bottom:6px">—</div>
+            <div id="preview-excerpt" style="font-size:11px;color:#aaa;line-height:1.5">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel" id="panel-all-posts">
+      <div class="panel-title">Alle Artikel</div>
+      <div class="posts-table">
+        <div class="posts-table-header"><div>Titel</div><div>Datum</div><div>Rubrik</div><div>Aktionen</div></div>
+        <div id="posts-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const PASS='germanadmin00#hamzauthority1';
+let editingId=null;
+function doLogin(){if(document.getElementById('pw-input').value===PASS){document.getElementById('login-screen').style.display='none';document.getElementById('admin-panel').style.display='block';loadDashboard();}else{document.getElementById('login-err').style.display='block';document.getElementById('pw-input').value='';}}
+function logout(){document.getElementById('login-screen').style.display='flex';document.getElementById('admin-panel').style.display='none';document.getElementById('pw-input').value='';}
+function showPanel(name,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.admin-nav button').forEach(b=>b.classList.remove('active'));document.getElementById('panel-'+name).classList.add('active');if(btn)btn.classList.add('active');if(name==='all-posts')loadPostsList();if(name==='dashboard')loadDashboard();if(name==='new-post'){editingId=null;clearEditor();}}
+function getPosts(){return JSON.parse(localStorage.getItem('db_posts')||'[]');}
+function savePosts(posts){localStorage.setItem('db_posts',JSON.stringify(posts));}
+function publishPost(){const title=document.getElementById('post-title').value.trim();const content=document.getElementById('post-content').value.trim();if(!title||!content){alert('Bitte Titel und Inhalt eingeben!');return;}const posts=getPosts();if(editingId){const idx=posts.findIndex(p=>p.id==editingId);if(idx>-1){posts[idx].title=title;posts[idx].content=content;posts[idx].category=document.getElementById('post-cat').value;posts[idx].author=document.getElementById('post-author').value;}}else{posts.push({id:Date.now(),title,content,category:document.getElementById('post-cat').value,author:document.getElementById('post-author').value||'Redaktion',date:new Date().toISOString()});}savePosts(posts);const msg=document.getElementById('success-msg');msg.textContent=editingId?'✅ ARTIKEL AKTUALISIERT!':'✅ ARTIKEL PUBLIZIERT!';msg.style.display='block';setTimeout(()=>{msg.style.display='none';clearEditor();},2000);editingId=null;}
+function clearEditor(){document.getElementById('post-title').value='';document.getElementById('post-content').value='';document.getElementById('post-cat').value='Allgemein';document.getElementById('post-author').value='Redaktion';document.getElementById('preview-title').textContent='—';document.getElementById('preview-excerpt').textContent='—';document.getElementById('editor-mode-title').textContent='Neuer Artikel';editingId=null;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('post-title').addEventListener('input',e=>{document.getElementById('preview-title').textContent=e.target.value||'—';});document.getElementById('post-content').addEventListener('input',e=>{const text=e.target.value.replace(/<[^>]+>/g,'').substring(0,80);document.getElementById('preview-excerpt').textContent=text?text+'...':'—';});});
+function fmt(cmd){const ta=document.getElementById('post-content');const s=ta.selectionStart,e=ta.selectionEnd,sel=ta.value.substring(s,e);const tag=cmd==='bold'?'strong':'em';ta.value=ta.value.substring(0,s)+`<${tag}>${sel}</${tag}>`+ta.value.substring(e);}
+function wrapTag(tag){const ta=document.getElementById('post-content');const s=ta.selectionStart,e=ta.selectionEnd,sel=ta.value.substring(s,e)||'Text hier';const wrapped=tag==='ul'?`<ul>\n  <li>${sel}</li>\n</ul>`:`<${tag}>${sel}</${tag}>`;ta.value=ta.value.substring(0,s)+wrapped+ta.value.substring(e);}
+function insertLink(){const url=prompt('URL eingeben:');if(!url)return;const ta=document.getElementById('post-content');const s=ta.selectionStart,e=ta.selectionEnd,sel=ta.value.substring(s,e)||'Link Text';ta.value=ta.value.substring(0,s)+`<a href="${url}">${sel}</a>`+ta.value.substring(e);}
+function loadPostsList(){const posts=getPosts();const el=document.getElementById('posts-list');if(!posts.length){el.innerHTML='<div class="empty-posts">Noch keine Artikel.</div>';return;}el.innerHTML=posts.slice().reverse().map(p=>{const date=new Date(p.date).toLocaleDateString('de-DE');const excerpt=p.content.replace(/<[^>]+>/g,'').substring(0,55);return `<div class="post-row"><div><div class="post-row-title">${p.title}</div><div class="post-row-excerpt">${excerpt}...</div></div><div class="post-row-date">${date}</div><div><span class="post-row-cat">${p.category||'Allgemein'}</span></div><div class="row-actions"><button class="edit-btn" onclick="editPost(${p.id})">✏ Edit</button><button class="del-btn" onclick="deletePost(${p.id})">✕ Del</button></div></div>`;}).join('');}
+function editPost(id){const post=getPosts().find(p=>p.id==id);if(!post)return;editingId=id;document.getElementById('post-title').value=post.title;document.getElementById('post-content').value=post.content;document.getElementById('post-cat').value=post.category||'Allgemein';document.getElementById('post-author').value=post.author||'Redaktion';document.getElementById('editor-mode-title').textContent='Artikel bearbeiten';document.getElementById('preview-title').textContent=post.title;showPanel('new-post',document.querySelector('.admin-nav button:nth-child(2)'));}
+function deletePost(id){if(!confirm('Artikel löschen?'))return;savePosts(getPosts().filter(p=>p.id!=id));loadPostsList();loadDashboard();}
+function loadDashboard(){const posts=getPosts();document.getElementById('stat-total').textContent=posts.length;const today=new Date().toDateString();document.getElementById('stat-today').textContent=posts.filter(p=>new Date(p.date).toDateString()===today).length;document.getElementById('stat-cats').textContent=new Set(posts.map(p=>p.category)).size;}
+</script>
+</body>
+</html>
