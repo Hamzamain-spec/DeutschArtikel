@@ -83,24 +83,72 @@ footer a:hover{color:var(--amber)}
   </aside>
 </div>
 <footer><div class="fl">Deutsch<span>Artikel</span></div><p>&copy; 2026 DeutschArtikel &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></p></footer>
+
 <script>
-const params=new URLSearchParams(window.location.search);
-const id=params.get('id');
-const posts=JSON.parse(localStorage.getItem('db_posts')||'[]');
-const post=posts.find(p=>p.id==id);
-if(post){
-  document.title=post.title+' — DeutschArtikel';
-  document.getElementById('post-title').textContent=post.title;
-  document.getElementById('post-cat').textContent=post.category||'Allgemein';
-  document.getElementById('post-author').textContent=post.author||'Redaktion';
-  document.getElementById('post-date').textContent=new Date(post.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'});
-  const words=post.content.replace(/<[^>]+>/g,'').split(' ').length;
-  document.getElementById('post-read').textContent=Math.max(1,Math.round(words/200))+' Min. Lesezeit';
-  document.getElementById('article-body').innerHTML=post.content;
-  document.getElementById('post-hero').style.display='block';
-  const rp=document.getElementById('recent-posts');
-  posts.slice(-4).reverse().forEach(p=>{if(p.id==id)return;rp.innerHTML+=`<div class="recent-item"><a href="post.html?id=${p.id}">${p.title}</a><span>${new Date(p.date).toLocaleDateString('de-DE')}</span></div>`;});
-}else{document.getElementById('not-found').style.display='block';}
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+const SITE_NAME = 'deutschartikel';
+const GIST_ID = '42ea11087f40fdba423f8eb0f575ac96'; // Same Gist for all sites!
+
+async function loadPost() {
+  try {
+    console.log('Fetching post from Gist ID:', GIST_ID);
+    console.log('Looking for post ID:', id);
+    
+    // Use raw URL
+    const rawUrl = `https://gist.githubusercontent.com/Hamzamain-spec/${GIST_ID}/raw/posts.json`;
+    const response = await fetch(rawUrl);
+    
+    if (response.ok) {
+      const allPosts = await response.json();
+      console.log('All posts:', allPosts);
+      
+      // Filter by site name
+      const sitePosts = allPosts.filter(post => post.site === SITE_NAME);
+      console.log(`Found ${sitePosts.length} posts for site: ${SITE_NAME}`);
+      
+      const post = sitePosts.find(p => p.id == id);
+      console.log('Found post:', post);
+      
+      if (post) {
+        document.title = post.title + ' — DeutschArtikel';
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-cat').textContent = post.category || 'Allgemein';
+        document.getElementById('post-author').textContent = post.author || 'Redaktion';
+        document.getElementById('post-date').textContent = new Date(post.date).toLocaleDateString('de-DE', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        });
+        
+        const words = post.content.replace(/<[^>]+>/g, '').split(' ').length;
+        document.getElementById('post-read').textContent = Math.max(1, Math.round(words / 200)) + ' Min. Lesezeit';
+        
+        document.getElementById('article-body').innerHTML = post.content;
+        document.getElementById('post-hero').style.display = 'block';
+        
+        // Recent posts
+        const rp = document.getElementById('recent-posts');
+        rp.innerHTML = '';
+        sitePosts.slice(-4).reverse().forEach(p => {
+          if (p.id == id) return;
+          rp.innerHTML += `<div class="recent-item"><a href="post.html?id=${p.id}">${p.title}</a><span>${new Date(p.date).toLocaleDateString('de-DE')}</span></div>`;
+        });
+      } else {
+        console.log('Post not found for ID:', id);
+        document.getElementById('not-found').style.display = 'block';
+      }
+    } else {
+      console.error('Failed to fetch from Gist:', response.status);
+      document.getElementById('not-found').style.display = 'block';
+    }
+  } catch (error) {
+    console.error('Error loading post:', error);
+    document.getElementById('not-found').style.display = 'block';
+  }
+}
+
+loadPost();
 </script>
 </body>
 </html>
