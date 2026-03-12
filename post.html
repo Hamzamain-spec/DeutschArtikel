@@ -3,66 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artikel — BerlinPost</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Artikel — DeutschArtikel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--red:#D0021B;--black:#080808;--dark:#111;--light:#F2F2F2;--white:#fff;--mid:#888;--border:#E0E0E0}
-body{font-family:'Inter',sans-serif;background:var(--light);color:var(--black)}
-.masthead{background:var(--black);padding:0 32px}
-.masthead-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.logo{font-family:'Anton',sans-serif;font-size:40px;color:#fff;text-decoration:none;letter-spacing:-0.5px}
-.logo span{color:var(--red)}
-nav{background:var(--red)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex}
-nav a{display:block;padding:10px 18px;color:rgba(255,255,255,0.85);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;border-right:1px solid rgba(255,255,255,0.12)}
-nav a:first-child{border-left:1px solid rgba(255,255,255,0.12)}
-nav a:hover{background:rgba(0,0,0,0.2);color:#fff}
-.post-hero{background:var(--black);padding:64px 32px;position:relative}
-.post-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--red)}
-.post-hero-inner{max-width:900px;margin:0 auto}
-.post-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
-.post-label-cat{background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:3px;padding:4px 12px;text-transform:uppercase}
-.post-label::after{content:'';width:40px;height:1px;background:rgba(255,255,255,0.2)}
-.post-title{font-family:'Anton',sans-serif;font-size:64px;color:#fff;line-height:0.95;letter-spacing:-2px;margin-bottom:24px}
-.post-meta{display:flex;gap:28px;font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px;text-transform:uppercase;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)}
-.post-meta span{color:rgba(255,255,255,0.7)}
-.layout{max-width:1100px;margin:40px auto;padding:0 32px;display:grid;grid-template-columns:1fr 260px;gap:32px}
-.main-col{background:var(--white);padding:44px;border:1px solid var(--border)}
-.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--mid);text-decoration:none;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--black);width:100%}
-.back-btn:hover{color:var(--red)}
-.article-body{font-size:17px;line-height:1.9;color:#333;font-weight:300}
-.article-body p{margin-bottom:26px}
-.article-body h2{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:-0.5px;color:var(--black);margin:50px 0 16px;text-transform:uppercase;padding-left:14px;border-left:4px solid var(--red)}
-.article-body h3{font-size:18px;font-weight:700;color:var(--black);margin:32px 0 10px}
-.article-body a{color:var(--red);font-weight:600;text-decoration:none;border-bottom:1px solid var(--red)}
-.article-body a:hover{opacity:0.7}
-.article-body ul,.article-body ol{padding-left:24px;margin-bottom:22px}
-.article-body li{margin-bottom:8px;line-height:1.7}
-blockquote{background:var(--light);border-left:4px solid var(--red);padding:22px 28px;margin:32px 0;font-size:18px;font-style:italic;color:#555}
-.sidebar{display:flex;flex-direction:column;gap:16px}
-.widget{background:var(--white);border:1px solid var(--border);padding:22px}
-.widget-title{font-family:'Anton',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--black);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--red)}
-.recent-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+:root{--amber:#C8680A;--dark-amber:#9E4D00;--cream:#FAF7F2;--brown:#2C1A0E;--sand:#EDE0CC;--white:#fff;--mid:#7D6B5A;--border:#DDD0BC}
+body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:var(--brown)}
+.top-strip{background:var(--brown);color:rgba(255,255,255,0.5);font-size:11px;padding:7px 40px;display:flex;justify-content:space-between;letter-spacing:0.5px}
+header{background:var(--cream);border-bottom:1px solid var(--border);padding:0 40px}
+.header-top{max-width:1200px;margin:0 auto;padding:20px 0;text-align:center;border-bottom:3px double var(--border);padding-bottom:16px}
+.logo{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--brown);text-decoration:none;letter-spacing:-1px}
+.logo span{color:var(--amber)}
+nav{max-width:1200px;margin:0 auto;display:flex;justify-content:center}
+nav a{text-decoration:none;color:var(--brown);font-size:12px;font-weight:700;padding:10px 18px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;display:block}
+nav a:hover{color:var(--amber);border-bottom-color:var(--amber)}
+.post-hero{background:var(--brown);padding:70px 28px;text-align:center;position:relative}
+.post-hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:3px;background:var(--amber)}
+.post-hero-inner{max-width:820px;margin:0 auto}
+.post-label{display:inline-block;background:var(--amber);color:#fff;font-size:10px;letter-spacing:3px;padding:4px 14px;font-weight:700;text-transform:uppercase;margin-bottom:22px}
+.post-title{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:24px}
+.post-meta{display:flex;justify-content:center;gap:24px;font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.post-meta span{color:rgba(255,255,255,0.8)}
+.layout{max-width:1100px;margin:48px auto;padding:0 28px;display:grid;grid-template-columns:1fr 260px;gap:40px}
+.main-col{background:var(--white);padding:48px;border:1px solid var(--border)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--mid);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border);width:100%}
+.back-btn:hover{color:var(--amber)}
+.article-body{font-size:18px;line-height:1.95;color:#4A3728;font-weight:300}
+.article-body p{margin-bottom:28px}
+.article-body h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--brown);margin:52px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.article-body h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--brown);margin:36px 0 12px}
+.article-body a{color:var(--amber);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.article-body a:hover{color:var(--dark-amber)}
+.article-body ul,.article-body ol{padding-left:24px;margin-bottom:24px}
+.article-body li{margin-bottom:8px;line-height:1.75}
+blockquote{border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);padding:28px 32px;margin:40px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--brown);line-height:1.5;text-align:center;background:var(--cream)}
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.widget{background:var(--white);border:1px solid var(--border);padding:24px}
+.widget-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--brown);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.recent-item{padding:12px 0;border-bottom:1px solid var(--border);font-size:13px}
 .recent-item:last-child{border-bottom:none}
-.recent-item a{color:var(--black);text-decoration:none;font-weight:600;display:block;margin-bottom:3px;line-height:1.4}
-.recent-item a:hover{color:var(--red)}
+.recent-item a{color:var(--brown);text-decoration:none;font-weight:600;display:block;margin-bottom:3px;line-height:1.4;font-family:'Playfair Display',serif}
+.recent-item a:hover{color:var(--amber)}
 .recent-item span{font-size:11px;color:#aaa;letter-spacing:0.5px}
 .not-found{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1}
-.not-found h2{font-family:'Anton',sans-serif;font-size:36px;color:var(--black);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
-footer{background:var(--black);color:rgba(255,255,255,0.35);text-align:center;padding:28px;font-size:12px;margin-top:60px}
-footer a{color:rgba(255,255,255,0.35);text-decoration:none;margin:0 8px}
-footer a:hover{color:var(--red)}
-.fl{font-family:'Anton',sans-serif;font-size:24px;color:#fff;margin-bottom:8px;letter-spacing:-0.5px}
-.fl span{color:var(--red)}
+.not-found h2{font-family:'Playfair Display',serif;font-size:36px;color:var(--brown);margin-bottom:12px}
+footer{background:var(--brown);color:rgba(255,255,255,0.4);text-align:center;padding:28px;font-size:12px;margin-top:60px}
+footer a{color:rgba(255,255,255,0.4);text-decoration:none;margin:0 8px}
+footer a:hover{color:var(--amber)}
+.fl{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:8px}
+.fl span{color:var(--amber)}
 </style>
 </head>
 <body>
-<div class="masthead"><div class="masthead-inner"><a href="index.html" class="logo">Berlin<span>Post</span></a><span style="font-size:11px;color:rgba(255,255,255,0.3)">Mittwoch, 12. März 2026 · Berlin</span></div></div>
-<nav><div class="nav-inner"><a href="index.html">← Zurück</a><a href="index.html">Home</a><a href="index.html">Berlin</a><a href="index.html">Politik</a></div></nav>
+<div class="top-strip"><span>🗞 <strong style="color:#fff">DeutschArtikel</strong></span><span>Mittwoch, 12. März 2026</span></div>
+<header>
+  <div class="header-top"><a href="index.html" class="logo">Deutsch<span>Artikel</span></a></div>
+  <nav><a href="index.html">← Zurück</a><a href="index.html">Startseite</a><a href="index.html">Ratgeber</a></nav>
+</header>
 <div id="post-hero" class="post-hero" style="display:none">
   <div class="post-hero-inner">
-    <div class="post-label"><span class="post-label-cat" id="post-cat">Berlin</span></div>
+    <div class="post-label" id="post-cat">Allgemein</div>
     <div class="post-title" id="post-title"></div>
     <div class="post-meta">
       <span>Von <span id="post-author">Redaktion</span></span>
@@ -73,21 +73,21 @@ footer a:hover{color:var(--red)}
 </div>
 <div class="layout">
   <div class="main-col">
-    <a href="index.html" class="back-btn">← Alle Nachrichten</a>
+    <a href="index.html" class="back-btn">← Alle Artikel</a>
     <div id="article-body" class="article-body"></div>
-    <div id="not-found" class="not-found" style="display:none"><h2>Nicht gefunden</h2><p>Dieser Artikel existiert nicht.</p></div>
+    <div id="not-found" class="not-found" style="display:none"><h2>Nicht gefunden</h2><p>Dieser Artikel existiert nicht mehr.</p></div>
   </div>
   <aside class="sidebar">
-    <div class="widget"><div class="widget-title">Weitere Meldungen</div><div id="recent-posts"></div></div>
-    <div class="widget"><div class="widget-title">BerlinPost</div><p style="font-size:13px;line-height:1.7;color:#888;font-weight:300">BerlinPost berichtet täglich über Neuigkeiten aus Berlin und Deutschland.</p></div>
+    <div class="widget"><div class="widget-title">Weitere Artikel</div><div id="recent-posts"></div></div>
+    <div class="widget"><div class="widget-title">Das Magazin</div><p style="font-size:13px;line-height:1.7;color:#888;font-weight:300">DeutschArtikel bringt täglich Qualitätsinhalte zu Politik, Wirtschaft, Kultur und mehr.</p></div>
   </aside>
 </div>
-<footer><div class="fl">Berlin<span>Post</span></div><p>&copy; 2026 BerlinPost &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></p></footer>
+<footer><div class="fl">Deutsch<span>Artikel</span></div><p>&copy; 2026 DeutschArtikel &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></p></footer>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
-const SITE_NAME = 'berlinpost';
+const SITE_NAME = 'deutschartikel';
 const GIST_ID = '42ea11087f40fdba423f8eb0f575ac96'; // Same Gist for all sites!
 
 async function loadPost() {
@@ -111,9 +111,9 @@ async function loadPost() {
       console.log('Found post:', post);
       
       if (post) {
-        document.title = post.title + ' — BerlinPost';
+        document.title = post.title + ' — DeutschArtikel';
         document.getElementById('post-title').textContent = post.title;
-        document.getElementById('post-cat').textContent = post.category || 'Berlin';
+        document.getElementById('post-cat').textContent = post.category || 'Allgemein';
         document.getElementById('post-author').textContent = post.author || 'Redaktion';
         document.getElementById('post-date').textContent = new Date(post.date).toLocaleDateString('de-DE', {
           day: 'numeric',
