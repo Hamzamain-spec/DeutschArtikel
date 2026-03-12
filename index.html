@@ -115,7 +115,7 @@ footer{background:var(--brown);color:rgba(255,255,255,0.4);margin-top:0}
     <div class="section-divider-line"></div>
   </div>
   <div class="grid" id="posts-grid">
-    <div class="empty"><h3>Noch keine Artikel</h3><p>Inhalte erscheinen bald.</p></div>
+    <div class="empty"><h3>Artikel werden geladen...</h3><p>Bitte warten Sie einen Moment.</p></div>
   </div>
 </div>
 
@@ -128,27 +128,89 @@ footer{background:var(--brown);color:rgba(255,255,255,0.4);margin-top:0}
   <div class="footer-bottom">&copy; 2026 DeutschArtikel &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
 </footer>
 <a href="admin.html" class="admin-link">⚙ Admin</a>
+
 <script>
-const bars=['','cb2','cb3','cb4','cb5','cb6'];
-function loadPosts(){
-  const posts=JSON.parse(localStorage.getItem('db_posts')||'[]');
-  const grid=document.getElementById('posts-grid');
-  if(!posts.length)return;
-  grid.innerHTML='';
-  posts.slice().reverse().forEach((p,i)=>{
-    const bar=bars[i%bars.length];
-    const date=new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'});
-    const excerpt=p.content.replace(/<[^>]+>/g,'').substring(0,120)+'...';
-    grid.innerHTML+=`<div class="card" onclick="location.href='post.html?id=${p.id}'">
+const bars = ['', 'cb2', 'cb3', 'cb4', 'cb5', 'cb6'];
+const SITE_NAME = 'deutschartikel';
+const GIST_ID = '42ea11087f40fdba423f8eb0f575ac96'; // Same Gist for all sites!
+
+async function loadPosts() {
+  const grid = document.getElementById('posts-grid');
+  
+  try {
+    console.log('Fetching from Gist ID:', GIST_ID);
+    
+    // Use raw URL - this ALWAYS works!
+    const rawUrl = `https://gist.githubusercontent.com/Hamzamain-spec/${GIST_ID}/raw/posts.json`;
+    const response = await fetch(rawUrl);
+    
+    if (response.ok) {
+      const allPosts = await response.json();
+      console.log('All posts from Gist:', allPosts);
+      
+      // Filter by site name
+      const sitePosts = allPosts.filter(post => post.site === SITE_NAME);
+      console.log(`Found ${sitePosts.length} posts for site: ${SITE_NAME}`);
+      
+      displayPosts(sitePosts);
+    } else {
+      console.error('Failed to fetch from Gist:', response.status);
+      grid.innerHTML = '<div class="empty"><h3>Fehler beim Laden</h3><p>Bitte später erneut versuchen.</p></div>';
+    }
+  } catch (error) {
+    console.error('Error loading posts:', error);
+    grid.innerHTML = '<div class="empty"><h3>Fehler</h3><p>' + error.message + '</p></div>';
+  }
+}
+
+function displayPosts(posts) {
+  const grid = document.getElementById('posts-grid');
+  
+  if (!posts || posts.length === 0) {
+    grid.innerHTML = '<div class="empty"><h3>Noch keine Artikel</h3><p>Inhalte erscheinen bald.</p></div>';
+    return;
+  }
+  
+  grid.innerHTML = '';
+  
+  // Sort by date (newest first)
+  const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  sortedPosts.forEach((p, i) => {
+    const bar = bars[i % bars.length];
+    const date = new Date(p.date).toLocaleDateString('de-DE', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    const excerpt = p.content.replace(/<[^>]+>/g, '').substring(0, 120) + '...';
+    
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => location.href = `post.html?id=${p.id}`;
+    
+    card.innerHTML = `
       <div class="card-color-bar ${bar}"></div>
-      <div class="card-cat">${p.category||'Allgemein'}</div>
+      <div class="card-cat">${p.category || 'Allgemein'}</div>
       <div class="card-title">${p.title}</div>
       <div class="card-excerpt">${excerpt}</div>
-      <div class="card-footer"><span>${date} · ${p.author||'Redaktion'}</span><a class="card-link" href="post.html?id=${p.id}">Lesen →</a></div>
-    </div>`;
+      <div class="card-footer">
+        <span>${date} · ${p.author || 'Redaktion'}</span>
+        <a class="card-link" href="post.html?id=${p.id}">Lesen →</a>
+      </div>
+    `;
+    
+    grid.appendChild(card);
   });
+  
+  console.log(`Displayed ${posts.length} posts`);
 }
+
+// Load posts when page loads
 loadPosts();
+
+// Auto-refresh every 30 seconds
+setInterval(loadPosts, 30000);
 </script>
 </body>
 </html>
