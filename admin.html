@@ -3,105 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — DeutschArtikel</title>
+<title>Admin — BerlinPost</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1A1208;color:#ffffff;min-height:100vh;font-size:14px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#050505;color:#ffffff;min-height:100vh;font-size:14px}
 /* LOGIN */
-.lw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1A1208}
-.lb{background:#241A0C;border:1px solid #3A2A14;padding:48px 40px;width:100%;max-width:400px;border-top:4px solid #C8960A}
+.lw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#050505}
+.lb{background:#0F0F0F;border:1px solid #1F1F1F;padding:48px 40px;width:100%;max-width:400px;border-top:4px solid #E8000A}
 .ll{font-size:22px;font-weight:800;color:#ffffff;margin-bottom:5px}
-.ll span{color:#C8960A}
+.ll span{color:#E8000A}
 .ls{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:26px;font-weight:600}
 .fl{margin-bottom:16px}
 .fl label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:6px}
-.fl input{width:100%;padding:11px 14px;border:1px solid #3A2A14;font-size:14px;font-family:inherit;outline:none;background:#241A0C;color:#ffffff}
-.fl input:focus{border-color:#C8960A}
-.lb-btn{width:100%;padding:13px;background:#C8960A;color:#0A0A0A;border:none;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.fl input{width:100%;padding:11px 14px;border:1px solid #1F1F1F;font-size:14px;font-family:inherit;outline:none;background:#0F0F0F;color:#ffffff}
+.fl input:focus{border-color:#E8000A}
+.lb-btn{width:100%;padding:13px;background:#E8000A;color:#ffffff;border:none;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
 .lb-btn:hover{opacity:0.85}
 .le{color:#EF4444;font-size:12px;margin-top:10px;display:none;font-weight:600;text-align:center}
 /* ADMIN */
 .aw{display:none;min-height:100vh}
-.ah{background:#241A0C;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:100;border-bottom:2px solid #C8960A}
+.ah{background:#0F0F0F;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:100;border-bottom:2px solid #E8000A}
 .al{font-size:18px;font-weight:800;color:#ffffff}
-.al span{color:#C8960A}
+.al span{color:#E8000A}
 .an{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
-.nb{background:transparent;border:1px solid #3A2A14;color:rgba(255,255,255,0.45);padding:6px 13px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit}
-.nb:hover,.nb.active{background:#C8960A;border-color:#C8960A;color:#0A0A0A}
+.nb{background:transparent;border:1px solid #1F1F1F;color:rgba(255,255,255,0.45);padding:6px 13px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.nb:hover,.nb.active{background:#E8000A;border-color:#E8000A;color:#ffffff}
 .lob{background:transparent;border:none;color:rgba(255,255,255,0.45);font-size:11px;cursor:pointer;padding:6px;font-family:inherit}
-.vb{display:inline-flex;background:transparent;border:1px solid #3A2A14;color:rgba(255,255,255,0.45);padding:6px 13px;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
-.vb:hover{border-color:#C8960A;color:#C8960A}
+.vb{display:inline-flex;background:transparent;border:1px solid #1F1F1F;color:rgba(255,255,255,0.45);padding:6px 13px;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.vb:hover{border-color:#E8000A;color:#E8000A}
 .ab{max-width:1100px;margin:0 auto;padding:26px 22px}
 .pn{display:none}.pn.active{display:block}
-.pt{font-size:22px;font-weight:800;color:#ffffff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #3A2A14}
+.pt{font-size:22px;font-weight:800;color:#ffffff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #1F1F1F}
 /* STATS */
 .sr{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:22px}
-.sc{background:#241A0C;border:1px solid #3A2A14;padding:22px;border-left:4px solid #C8960A}
-.sn{font-size:42px;font-weight:900;color:#C8960A;line-height:1;margin-bottom:3px}
+.sc{background:#0F0F0F;border:1px solid #1F1F1F;padding:22px;border-left:4px solid #E8000A}
+.sn{font-size:42px;font-weight:900;color:#E8000A;line-height:1;margin-bottom:3px}
 .sl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45)}
 /* GH STATUS */
-.ghs{background:#241A0C;border:1px solid #3A2A14;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:9px;font-size:12px}
+.ghs{background:#0F0F0F;border:1px solid #1F1F1F;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:9px;font-size:12px}
 .gd{width:8px;height:8px;border-radius:50%;background:#6B7280;flex-shrink:0}
 .gd.ok{background:#22C55E}.gd.er{background:#EF4444}.gd.sp{background:#EAB308;animation:bk 1s infinite}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:0.3}}
 .gt{color:rgba(255,255,255,0.45)}
 /* CTA */
-.dc{background:#241A0C;border:1px solid #3A2A14;padding:44px;text-align:center}
+.dc{background:#0F0F0F;border:1px solid #1F1F1F;padding:44px;text-align:center}
 .dc h3{font-size:24px;font-weight:800;color:#ffffff;margin-bottom:8px}
 .dc p{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px}
 /* EDITOR */
 .eg{display:grid;grid-template-columns:1fr 275px;gap:16px}
-.em{background:#241A0C;border:1px solid #3A2A14;padding:26px}
+.em{background:#0F0F0F;border:1px solid #1F1F1F;padding:26px}
 .es{display:flex;flex-direction:column;gap:11px}
-.sb{background:#241A0C;border:1px solid #3A2A14;padding:16px}
-.sb h3{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid #3A2A14}
+.sb{background:#0F0F0F;border:1px solid #1F1F1F;padding:16px}
+.sb h3{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid #1F1F1F}
 .ti{font-size:23px;font-weight:800;border:none;background:transparent;width:100%;outline:none;margin-bottom:13px;color:#ffffff;font-family:inherit}
-.ti::placeholder{color:#3A2A14}
-.ts{height:2px;background:linear-gradient(to right,#C8960A,transparent);margin-bottom:16px}
+.ti::placeholder{color:#1F1F1F}
+.ts{height:2px;background:linear-gradient(to right,#E8000A,transparent);margin-bottom:16px}
 .ff{margin-bottom:12px}
 .ff label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:6px}
-.ff input,.ff select,.ff textarea{width:100%;padding:9px 12px;border:1px solid #3A2A14;font-size:13px;font-family:inherit;outline:none;background:#241A0C;color:#ffffff}
-.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:#C8960A}
-.ff select option{background:#241A0C;color:#ffffff}
+.ff input,.ff select,.ff textarea{width:100%;padding:9px 12px;border:1px solid #1F1F1F;font-size:13px;font-family:inherit;outline:none;background:#0F0F0F;color:#ffffff}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:#E8000A}
+.ff select option{background:#0F0F0F;color:#ffffff}
 #pc{min-height:360px;resize:vertical;line-height:1.7}
 .tb{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
-.tb button{background:#241A0C;border:1px solid #3A2A14;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;color:#ffffff;font-family:inherit}
-.tb button:hover{background:#C8960A;color:#0A0A0A;border-color:#C8960A}
-.pb{width:100%;padding:12px;background:#C8960A;color:#0A0A0A;border:none;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-bottom:7px}
+.tb button{background:#0F0F0F;border:1px solid #1F1F1F;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;color:#ffffff;font-family:inherit}
+.tb button:hover{background:#E8000A;color:#ffffff;border-color:#E8000A}
+.pb{width:100%;padding:12px;background:#E8000A;color:#ffffff;border:none;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-bottom:7px}
 .pb:hover{opacity:0.85}
 .pb:disabled{opacity:0.4;cursor:not-allowed}
-.cb{width:100%;padding:8px;background:transparent;color:rgba(255,255,255,0.45);border:1px solid #3A2A14;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;font-family:inherit}
-.cb:hover{border-color:#C8960A;color:#C8960A}
+.cb{width:100%;padding:8px;background:transparent;color:rgba(255,255,255,0.45);border:1px solid #1F1F1F;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;font-family:inherit}
+.cb:hover{border-color:#E8000A;color:#E8000A}
 .sm{padding:9px;font-size:11px;font-weight:700;margin-top:7px;display:none;text-align:center;letter-spacing:0.5px}
 .sm.ok{background:rgba(34,197,94,0.12);color:#22C55E;border:1px solid rgba(34,197,94,0.25)}
 .sm.er{background:rgba(239,68,68,0.12);color:#EF4444;border:1px solid rgba(239,68,68,0.25)}
 .sm.ld{background:rgba(234,179,8,0.12);color:#EAB308;border:1px solid rgba(234,179,8,0.25)}
 /* TABLE */
-.pt2{background:#241A0C;border:1px solid #3A2A14;overflow:hidden}
-.th{display:grid;grid-template-columns:1fr 130px 130px 110px;padding:9px 16px;background:#1A1208;color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #3A2A14}
-.tr{display:grid;grid-template-columns:1fr 130px 130px 110px;padding:13px 16px;border-bottom:1px solid #3A2A14;align-items:center;transition:background 0.15s}
-.tr:hover{background:#1A1208}
+.pt2{background:#0F0F0F;border:1px solid #1F1F1F;overflow:hidden}
+.th{display:grid;grid-template-columns:1fr 130px 130px 110px;padding:9px 16px;background:#050505;color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1F1F1F}
+.tr{display:grid;grid-template-columns:1fr 130px 130px 110px;padding:13px 16px;border-bottom:1px solid #1F1F1F;align-items:center;transition:background 0.15s}
+.tr:hover{background:#050505}
 .tr:last-child{border-bottom:none}
 .trt{font-size:13px;font-weight:700;color:#ffffff;margin-bottom:2px}
 .trs{font-size:10px;color:rgba(255,255,255,0.45);font-family:monospace}
 .trd{font-size:11px;color:rgba(255,255,255,0.45)}
-.trc{font-size:9px;background:#1A1208;color:#C8960A;padding:2px 8px;font-weight:700;border:1px solid #3A2A14;display:inline-block}
+.trc{font-size:9px;background:#050505;color:#E8000A;padding:2px 8px;font-weight:700;border:1px solid #1F1F1F;display:inline-block}
 .ra{display:flex;gap:5px}
-.eb{background:#C8960A;color:#0A0A0A;border:none;padding:4px 10px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit}
+.eb{background:#E8000A;color:#ffffff;border:none;padding:4px 10px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit}
 .db{background:transparent;color:#EF4444;border:1px solid #EF4444;padding:4px 10px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit}
 .ep{text-align:center;padding:50px;color:rgba(255,255,255,0.45)}
 /* PREVIEW */
-.pv{background:#1A1208;border:1px solid #3A2A14;padding:9px;margin-top:7px}
-.pvs{font-size:10px;font-family:monospace;color:#C8960A;margin-bottom:3px}
+.pv{background:#050505;border:1px solid #1F1F1F;padding:9px;margin-top:7px}
+.pvs{font-size:10px;font-family:monospace;color:#E8000A;margin-bottom:3px}
 .pvt{font-size:13px;font-weight:700;color:#ffffff;margin-bottom:2px}
 .pve{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5}
 /* GIST CONFIG */
-.gist-config{background:#241A0C;border:1px solid #3A2A14;padding:24px;margin-bottom:24px}
+.gist-config{background:#0F0F0F;border:1px solid #1F1F1F;padding:24px;margin-bottom:24px}
 .gist-field{margin-bottom:12px}
 .gist-field label{display:block;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.45);margin-bottom:4px}
-.gist-field input{width:100%;padding:10px;border:1px solid #3A2A14;font-size:14px;background:#1A1208;color:#fff}
+.gist-field input{width:100%;padding:10px;border:1px solid #1F1F1F;font-size:14px;background:#050505;color:#fff}
 .gist-status{font-size:12px;margin-top:8px;padding:8px;display:none}
-.gist-info{background:#1A1208;padding:12px;margin-top:12px;border-left:4px solid #C8960A;font-size:13px;color:rgba(255,255,255,0.9)}
+.gist-info{background:#050505;padding:12px;margin-top:12px;border-left:4px solid #E8000A;font-size:13px;color:rgba(255,255,255,0.9)}
 </style>
 </head>
 <body>
@@ -109,7 +109,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <!-- LOGIN SCREEN -->
 <div class="lw" id="LOGIN">
   <div class="lb">
-    <div class="ll">Deutsch<span>Artikel</span></div>
+    <div class="ll">Berli<span>nPost</span></div>
     <div class="ls">Admin Panel</div>
     <div class="fl">
       <label>Passwort</label>
@@ -123,7 +123,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <!-- ADMIN PANEL -->
 <div class="aw" id="ADMIN">
   <div class="ah">
-    <div class="al">Deutsch<span>Artikel</span></div>
+    <div class="al">Berli<span>nPost</span></div>
     <div class="an">
       <button class="nb active" id="b0" onclick="show('dash',this)">Dashboard</button>
       <button class="nb" id="b1" onclick="show('edit',this)">✏ Neuer Artikel</button>
@@ -157,8 +157,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="gist-config">
         <div class="gist-info">
           <strong>📌 Gist ID (fest für alle Sites):</strong><br>
-          <strong style="font-size:16px;color:#C8960A">42ea11087f40fdba423f8eb0f575ac96</strong><br><br>
-          <strong>Site Name für diese Site:</strong> deutschartikel
+          <strong style="font-size:16px;color:#E8000A">42ea11087f40fdba423f8eb0f575ac96</strong><br><br>
+          <strong>Site Name für diese Site:</strong> berlinpost
         </div>
         <div class="gist-field">
           <label>GitHub Token</label>
@@ -166,11 +166,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
         </div>
         <div class="gist-field">
           <label>Site Name (für diese Site)</label>
-          <input type="text" id="site-name" value="deutschartikel" placeholder="deutschartikel">
+          <input type="text" id="site-name" value="berlinpost" placeholder="berlinpost">
           <small style="color:rgba(255,255,255,0.45);">Trennt Artikel verschiedener Sites</small>
         </div>
         <button class="pb" onclick="testGistConnection()" style="width:auto;padding:10px 22px">🔌 Test Gist Verbindung</button>
-        <button class="pb" onclick="saveGistConfig()" style="width:auto;padding:10px 22px;background:#3A2A14">💾 Konfiguration Speichern</button>
+        <button class="pb" onclick="saveGistConfig()" style="width:auto;padding:10px 22px;background:#1F1F1F">💾 Konfiguration Speichern</button>
         <button class="pb" onclick="migrateLocalToGist()" style="width:auto;padding:10px 22px;background:#22C55E">⬆️ Lokale Artikel migrieren</button>
         <div class="gist-status" id="gist-status"></div>
       </div>
@@ -213,14 +213,14 @@ Beispiel:
             <h3>Details</h3>
             <div class="ff"><label>Kategorie</label>
               <select id="PCAT">
+                <option>Berlin</option>
+                <option>Politik</option>
                 <option>Wirtschaft</option>
-                <option>Finanzen</option>
-                <option>Karriere</option>
-                <option>Ratgeber</option>
-                <option>Gesellschaft</option>
                 <option>Kultur</option>
-                <option>Reisen</option>
-                <option>Technologie</option>
+                <option>Sport</option>
+                <option>Gesellschaft</option>
+                <option>Kriminalitaet</option>
+                <option>Ratgeber</option>
               </select>
             </div>
             <div class="ff"><label>Autor</label><input type="text" id="PAU" value="Redaktion"></div>
@@ -257,18 +257,18 @@ const GIST_ID = '42ea11087f40fdba423f8eb0f575ac96'; // Fixed Gist ID for all sit
 let editingId = null;
 let gistConfig = {
   token: '',
-  siteName: 'deutschartikel'
+  siteName: 'berlinpost'
 };
 
 // Load Gist config from localStorage
 function loadGistConfig() {
-  const saved = localStorage.getItem('gist_config_deutschartikel');
+  const saved = localStorage.getItem('gist_config_berlin');
   if (saved) {
     try {
       const savedConfig = JSON.parse(saved);
       gistConfig = {...gistConfig, ...savedConfig};
       document.getElementById('github-token').value = gistConfig.token || '';
-      document.getElementById('site-name').value = gistConfig.siteName || 'deutschartikel';
+      document.getElementById('site-name').value = gistConfig.siteName || 'berlinpost';
     } catch (e) {
       console.error('Error loading Gist config:', e);
     }
@@ -280,9 +280,9 @@ function loadGistConfig() {
 function saveGistConfig() {
   gistConfig = {
     token: document.getElementById('github-token').value,
-    siteName: document.getElementById('site-name').value || 'deutschartikel'
+    siteName: document.getElementById('site-name').value || 'berlinpost'
   };
-  localStorage.setItem('gist_config_deutschartikel', JSON.stringify(gistConfig));
+  localStorage.setItem('gist_config_berlin', JSON.stringify(gistConfig));
   updateGistBox();
   showGistStatus('✅ Konfiguration gespeichert!', 'ok');
 }
@@ -645,7 +645,7 @@ async function editPost(id) {
   editingId = id;
   document.getElementById('PT').value = post.title;
   document.getElementById('PC').value = post.content;
-  document.getElementById('PCAT').value = post.category || 'Wirtschaft';
+  document.getElementById('PCAT').value = post.category || 'Berlin';
   document.getElementById('PAU').value = post.author || 'Redaktion';
   document.getElementById('ETITLE').textContent = 'Artikel bearbeiten';
   document.getElementById('PVTL').textContent = post.title;
