@@ -3,117 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DeutschArtikel — Das Magazin für kluge Köpfe</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>BerlinPost — Nachrichten aus der Hauptstadt</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--amber:#C8680A;--dark-amber:#9E4D00;--cream:#FAF7F2;--brown:#2C1A0E;--sand:#EDE0CC;--white:#fff;--mid:#7D6B5A;--border:#DDD0BC;--green:#2D5A27;--red:#8B1A1A}
-body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:var(--brown)}
+:root{--red:#D0021B;--black:#080808;--dark:#111;--grey:#1E1E1E;--light:#F2F2F2;--white:#fff;--mid:#888;--border:#E0E0E0;--yellow:#F5C500}
+body{font-family:'Inter',sans-serif;background:var(--light);color:var(--black)}
 
-/* TOP STRIP */
-.top-strip{background:var(--brown);color:rgba(255,255,255,0.5);font-size:11px;padding:7px 40px;display:flex;justify-content:space-between;letter-spacing:0.5px}
-.top-strip a{color:rgba(255,255,255,0.5);text-decoration:none}
-.top-strip a:hover{color:var(--amber)}
-
-/* HEADER */
-header{background:var(--cream);border-bottom:1px solid var(--border);padding:0 40px}
-.header-top{max-width:1200px;margin:0 auto;padding:24px 0 0;text-align:center;border-bottom:3px double var(--border);padding-bottom:20px}
-.logo{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--brown);letter-spacing:-2px;text-decoration:none;line-height:1;display:block}
-.logo span{color:var(--amber)}
-.logo-tagline{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--mid);margin-top:6px;font-weight:600}
+/* MASTHEAD */
+.masthead{background:var(--black);padding:0 32px}
+.masthead-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.masthead-date{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px}
+.masthead-logo{text-align:center}
+.logo{font-family:'Anton',sans-serif;font-size:58px;color:#fff;letter-spacing:-1px;text-decoration:none;line-height:1;display:block}
+.logo span{color:var(--red)}
+.logo-rule{display:flex;align-items:center;gap:0;justify-content:center;margin-top:4px}
+.logo-rule::before,.logo-rule::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.15)}
+.logo-sub{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.35);padding:0 16px;white-space:nowrap}
+.masthead-extras{text-align:right;font-size:11px;color:rgba(255,255,255,0.35)}
+.masthead-extras a{color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.5px}
+.masthead-extras a:hover{color:var(--red)}
 
 /* NAV */
-nav{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:0;padding:0}
-nav a{text-decoration:none;color:var(--brown);font-size:12px;font-weight:700;padding:12px 20px;letter-spacing:2px;text-transform:uppercase;transition:all 0.2s;border-bottom:2px solid transparent;display:block}
-nav a:hover{color:var(--amber);border-bottom-color:var(--amber)}
+nav{background:var(--red)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center}
+nav a{display:block;padding:11px 18px;color:rgba(255,255,255,0.85);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;border-right:1px solid rgba(255,255,255,0.12)}
+nav a:first-child{border-left:1px solid rgba(255,255,255,0.12)}
+nav a:hover{background:rgba(0,0,0,0.2);color:#fff}
 
-/* ISSUE BANNER */
-.issue-banner{background:var(--amber);color:#fff;text-align:center;padding:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+/* TICKER */
+.ticker{background:var(--black);color:rgba(255,255,255,0.6);padding:8px 32px;display:flex;align-items:center;gap:14px;overflow:hidden}
+.ticker-label{background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:3px;padding:3px 10px;white-space:nowrap;text-transform:uppercase}
+.ticker-text{font-size:12px;font-weight:400;white-space:nowrap;animation:scroll 35s linear infinite}
+@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
-/* HERO - MAGAZINE LAYOUT */
-.hero{max-width:1200px;margin:40px auto;padding:0 28px;display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:start}
-.hero-divider{background:var(--border);width:1px;margin:0 40px}
-.hero-left{padding-right:40px}
-.hero-right{padding-left:40px;display:flex;flex-direction:column;gap:28px}
-.hero-label{display:inline-block;background:var(--amber);color:#fff;font-size:10px;letter-spacing:3px;padding:4px 12px;font-weight:700;text-transform:uppercase;margin-bottom:16px}
-.hero-title{font-family:'Playfair Display',serif;font-size:58px;font-weight:900;line-height:1.0;color:var(--brown);margin-bottom:18px;letter-spacing:-1px}
-.hero-excerpt{font-size:16px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:24px}
-.hero-meta{font-size:12px;color:var(--mid);font-weight:600;letter-spacing:1px;display:flex;gap:16px;align-items:center}
-.hero-meta::before{content:'';width:24px;height:1px;background:var(--amber)}
-.hero-small-item{display:flex;gap:16px;padding-bottom:28px;border-bottom:1px solid var(--border)}
-.hero-small-item:last-child{border-bottom:none;padding-bottom:0}
-.hero-small-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--sand);line-height:1;flex-shrink:0;width:44px}
-.hero-small-body{}
-.hero-small-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:5px}
-.hero-small-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown);line-height:1.3}
+/* HERO NEWSPAPER GRID */
+.hero{max-width:1200px;margin:32px auto;padding:0 32px;display:grid;grid-template-columns:2fr 1px 1fr;gap:0;border:1px solid var(--border);background:var(--white)}
+.hero-main{padding:36px 36px 36px 32px;border-right:1px solid var(--border)}
+.hero-main-label{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.hero-main-label span{background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:3px;padding:4px 12px;text-transform:uppercase}
+.hero-main-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.hero-main-title{font-family:'Anton',sans-serif;font-size:62px;color:var(--black);line-height:0.95;letter-spacing:-1px;margin-bottom:18px}
+.hero-main-excerpt{font-size:15px;color:#555;line-height:1.8;font-weight:300;border-top:1px solid var(--border);padding-top:18px;margin-top:4px}
+.hero-side{padding:28px 28px 28px 32px;display:flex;flex-direction:column;gap:0}
+.hero-side-item{padding:22px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.hero-side-item:last-child{border-bottom:none}
+.hero-side-item:hover .hs-title{color:var(--red)}
+.hs-cat{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:7px}
+.hs-title{font-family:'Anton',sans-serif;font-size:22px;color:var(--black);line-height:1.05;letter-spacing:-0.5px;transition:color 0.2s;margin-bottom:6px}
+.hs-meta{font-size:11px;color:var(--mid)}
 
-/* DIVIDER */
-.section-divider{max-width:1200px;margin:0 auto 32px;padding:0 28px;display:flex;align-items:center;gap:16px}
-.section-divider-line{flex:1;height:1px;background:var(--border)}
-.section-divider-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--brown);letter-spacing:-0.5px;white-space:nowrap}
-.section-divider-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);font-weight:700}
+/* SECTION */
+.section{max-width:1200px;margin:0 auto 0;padding:0 32px 48px}
+.section-label{display:flex;align-items:center;gap:0;margin-bottom:24px;margin-top:32px}
+.section-label-text{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--white);background:var(--black);padding:8px 20px}
+.section-label::after{content:'';flex:1;height:2px;background:var(--black)}
 
 /* GRID */
-.grid-section{max-width:1200px;margin:0 auto 60px;padding:0 28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0;border:1px solid var(--border)}
-.card{padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.2s;cursor:pointer;position:relative;overflow:hidden}
-.card:hover{background:var(--white)}
-.card:nth-child(3n){border-right:none}
-.card-color-bar{height:3px;margin:-28px -28px 20px;background:var(--amber)}
-.cb2{background:var(--green)}
-.cb3{background:var(--red)}
-.cb4{background:var(--dark-amber)}
-.cb5{background:#1A3A5C}
-.cb6{background:#4A2C6A}
-.card-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px}
-.card-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--brown);line-height:1.3;margin-bottom:12px}
-.card-excerpt{font-size:13px;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:16px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#aaa;font-weight:600;letter-spacing:0.5px}
-.card-link{font-size:12px;font-weight:700;color:var(--amber);text-decoration:none;letter-spacing:1px;text-transform:uppercase}
-.card-link:hover{color:var(--dark-amber)}
-.empty{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1;border:none}
-.empty h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--brown);margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0;border:1px solid var(--border);background:var(--border)}
+.card{background:var(--white);gap:1px;padding:28px;transition:background 0.2s;cursor:pointer;border-bottom:none;border-right:none}
+.card:hover{background:#FFFAF8}
+.card-rule{height:3px;background:var(--black);margin:-28px -28px 20px}
+.card-rule.r2{background:var(--red)}
+.card-rule.r3{background:#1A3A6A}
+.card-rule.r4{background:#2D5A27}
+.card-rule.r5{background:#5A1A6A}
+.card-rule.r6{background:#6A3A1A}
+.card-cat{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.card-title{font-family:'Anton',sans-serif;font-size:22px;color:var(--black);line-height:1.05;letter-spacing:-0.5px;margin-bottom:10px}
+.card-excerpt{font-size:13px;color:#666;line-height:1.7;font-weight:300;margin-bottom:14px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--mid);padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:11px;font-weight:700;color:var(--red);text-decoration:none;letter-spacing:1px;text-transform:uppercase}
+.empty{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1;background:var(--white)}
+.empty h3{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:1px;color:var(--black);margin-bottom:8px;text-transform:uppercase}
 
-footer{background:var(--brown);color:rgba(255,255,255,0.4);margin-top:0}
-.footer-inner{max-width:1200px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
-.footer-logo{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;margin-bottom:12px}
-.footer-logo span{color:var(--amber)}
+footer{background:var(--black);color:rgba(255,255,255,0.35);margin-top:0}
+.footer-inner{max-width:1200px;margin:0 auto;padding:48px 32px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.footer-logo{font-family:'Anton',sans-serif;font-size:32px;color:#fff;margin-bottom:12px;letter-spacing:-0.5px}
+.footer-logo span{color:var(--red)}
 .footer-inner p{font-size:13px;line-height:1.7;font-weight:300}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:16px}
-.footer-col a{display:block;color:rgba(255,255,255,0.4);text-decoration:none;font-size:13px;margin-bottom:8px;font-weight:300}
-.footer-col a:hover{color:var(--amber)}
-.footer-bottom{text-align:center;padding:20px 28px;font-size:12px;max-width:1200px;margin:0 auto}
-.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;margin:0 8px}
-.footer-bottom a:hover{color:var(--amber)}
-.admin-link{position:fixed;bottom:20px;right:20px;background:var(--amber);color:#fff;padding:10px 18px;font-size:12px;text-decoration:none;opacity:0.4;transition:opacity 0.2s;font-weight:700;letter-spacing:1px}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,0.35);text-decoration:none;font-size:13px;margin-bottom:8px}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{text-align:center;padding:18px 32px;font-size:12px;max-width:1200px;margin:0 auto}
+.footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;margin:0 8px}
+.footer-bottom a:hover{color:var(--red)}
+.admin-link{position:fixed;bottom:20px;right:20px;background:var(--red);color:#fff;padding:10px 18px;font-size:12px;text-decoration:none;opacity:0.4;transition:opacity 0.2s;font-weight:700;letter-spacing:1px}
 .admin-link:hover{opacity:1}
 </style>
 </head>
 <body>
-<div class="top-strip"><span>🗞 <strong style="color:#fff">DeutschArtikel</strong> — Das Magazin für kluge Köpfe</span><span>Mittwoch, 12. März 2026 &nbsp;|&nbsp;<a href="#">Anmelden</a></span></div>
-<header>
-  <div class="header-top">
-    <a href="index.html" class="logo">Deutsch<span>Artikel</span></a>
-    <div class="logo-tagline">Das Magazin für kluge Köpfe</div>
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-date">Mittwoch, 12. März 2026 &nbsp;·&nbsp; Berlin, Deutschland</div>
+    <div class="masthead-logo">
+      <a href="index.html" class="logo">Berlin<span>Post</span></a>
+      <div class="logo-rule"><span class="logo-sub">Nachrichten aus der Hauptstadt</span></div>
+    </div>
+    <div class="masthead-extras"><a href="#">Anmelden</a> &nbsp;·&nbsp; <a href="#">Archiv</a></div>
   </div>
-  <nav>
-    <a href="index.html">Startseite</a>
-    <a href="index.html">Politik</a>
-    <a href="index.html">Wirtschaft</a>
-    <a href="index.html">Kultur</a>
-    <a href="index.html">Ratgeber</a>
-    <a href="index.html">Meinung</a>
-    <a href="index.html">Reisen</a>
-  </nav>
-</header>
-<div class="issue-banner">✦ Neue Artikel täglich ✦ Kostenlos lesen ✦ Qualitätsjournalismus ✦</div>
+</div>
+<nav><div class="nav-inner">
+  <a href="index.html">Home</a>
+  <a href="index.html">Berlin</a>
+  <a href="index.html">Politik</a>
+  <a href="index.html">Wirtschaft</a>
+  <a href="index.html">Kultur</a>
+  <a href="index.html">Sport</a>
+  <a href="index.html">Meinung</a>
+</div></nav>
+<div class="ticker"><span class="ticker-label">⚡ Aktuell</span><span class="ticker-text">Willkommen bei BerlinPost — Nachrichten aus der deutschen Hauptstadt &nbsp;•&nbsp; Täglich aktuell &nbsp;•&nbsp; Kostenlos lesen</span></div>
 
-<div class="grid-section" id="articles" style="margin-top:40px">
-  <div class="section-divider">
-    <div class="section-divider-line"></div>
-    <div style="text-align:center;padding:0 20px"><div class="section-divider-label">Magazin</div><div class="section-divider-title">Aktuelle Artikel</div></div>
-    <div class="section-divider-line"></div>
-  </div>
+<div class="section" id="articles">
+  <div class="section-label"><div class="section-label-text">Aktuelle Meldungen</div></div>
   <div class="grid" id="posts-grid">
     <div class="empty"><h3>Artikel werden geladen...</h3><p>Bitte warten Sie einen Moment.</p></div>
   </div>
@@ -121,17 +123,17 @@ footer{background:var(--brown);color:rgba(255,255,255,0.4);margin-top:0}
 
 <footer>
   <div class="footer-inner">
-    <div><div class="footer-logo">Deutsch<span>Artikel</span></div><p>Das Magazin für kluge Köpfe. Täglich neue Artikel zu den wichtigsten Themen aus Deutschland und der Welt.</p></div>
-    <div class="footer-col"><h4>Rubriken</h4><a href="#">Politik</a><a href="#">Wirtschaft</a><a href="#">Kultur</a><a href="#">Ratgeber</a></div>
-    <div class="footer-col"><h4>Magazin</h4><a href="#">Über uns</a><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+    <div><div class="footer-logo">Berlin<span>Post</span></div><p>BerlinPost berichtet täglich über Neuigkeiten aus Berlin und Deutschland. Unabhängig, aktuell, zuverlässig.</p></div>
+    <div class="footer-col"><h4>Ressorts</h4><a href="#">Berlin</a><a href="#">Politik</a><a href="#">Wirtschaft</a><a href="#">Kultur</a></div>
+    <div class="footer-col"><h4>Zeitung</h4><a href="#">Über uns</a><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
   </div>
-  <div class="footer-bottom">&copy; 2026 DeutschArtikel &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
+  <div class="footer-bottom">&copy; 2026 BerlinPost &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
 </footer>
 <a href="admin.html" class="admin-link">⚙ Admin</a>
 
 <script>
-const bars = ['', 'cb2', 'cb3', 'cb4', 'cb5', 'cb6'];
-const SITE_NAME = 'deutschartikel';
+const rules = ['', 'r2', 'r3', 'r4', 'r5', 'r6'];
+const SITE_NAME = 'berlinpost';
 const GIST_ID = '42ea11087f40fdba423f8eb0f575ac96'; // Same Gist for all sites!
 
 async function loadPosts() {
@@ -167,7 +169,7 @@ function displayPosts(posts) {
   const grid = document.getElementById('posts-grid');
   
   if (!posts || posts.length === 0) {
-    grid.innerHTML = '<div class="empty"><h3>Noch keine Artikel</h3><p>Inhalte erscheinen bald.</p></div>';
+    grid.innerHTML = '<div class="empty"><h3>Keine Artikel vorhanden</h3><p>Nachrichten erscheinen in Kürze.</p></div>';
     return;
   }
   
@@ -177,25 +179,25 @@ function displayPosts(posts) {
   const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
   
   sortedPosts.forEach((p, i) => {
-    const bar = bars[i % bars.length];
+    const r = rules[i % rules.length];
     const date = new Date(p.date).toLocaleDateString('de-DE', {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
     });
-    const excerpt = p.content.replace(/<[^>]+>/g, '').substring(0, 120) + '...';
+    const excerpt = p.content.replace(/<[^>]+>/g, '').substring(0, 110) + '...';
     
     const card = document.createElement('div');
     card.className = 'card';
     card.onclick = () => location.href = `post.html?id=${p.id}`;
     
     card.innerHTML = `
-      <div class="card-color-bar ${bar}"></div>
-      <div class="card-cat">${p.category || 'Allgemein'}</div>
+      <div class="card-rule ${r}"></div>
+      <div class="card-cat">${p.category || 'Berlin'}</div>
       <div class="card-title">${p.title}</div>
       <div class="card-excerpt">${excerpt}</div>
       <div class="card-footer">
-        <span>${date} · ${p.author || 'Redaktion'}</span>
+        <span>${p.author || 'Redaktion'} &nbsp;·&nbsp; ${date}</span>
         <a class="card-link" href="post.html?id=${p.id}">Lesen →</a>
       </div>
     `;
