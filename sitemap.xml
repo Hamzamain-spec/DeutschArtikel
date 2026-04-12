@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://deutschartikel.ycare.de/</loc>
+    <loc>https://deutschartikel.netlify.app/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://deutschartikel.ycare.de/post.html?id=1773342075509</loc>
+    <loc>https://deutschartikel.netlify.app/post.html?id=1773342075509</loc>
     <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://deutschartikel.ycare.de/post.html?id=post-1775654132459</loc>
+    <loc>https://deutschartikel.netlify.app/post.html?id=post-1775654132459</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
